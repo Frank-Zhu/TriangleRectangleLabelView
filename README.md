@@ -8,7 +8,7 @@ A label view. Extends TextView
 Usage
 ============
 Also, you can optionally set the following attributes in your layout xml file to customize the behavior
-of the ExpandableTextView.
+of the TriangleRectangleLabelView.
 
  * `trlvBgColor` (defaults to 0xff41c7cd)
  The label view background
@@ -67,7 +67,7 @@ Contribution
 ============
 ### Pull requests are welcome!
 
-If you have a bug to report a feature to request or have other questions, [file an issue](https://github.com/Frank-Zhu/PullZoomView/issues). I'll try to answer as soon as I can.
+If you have a bug to report a feature to request or have other questions, [file an issue](https://github.com/Frank-Zhu/TriangleRectangleLabelView/issues). I'll try to answer as soon as I can.
 
 About me
 ============
