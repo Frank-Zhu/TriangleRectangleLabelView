@@ -29,24 +29,27 @@ public class TriangleRectangleLabelView extends TextView {
     private static final String TAG = TriangleRectangleLabelView.class.getSimpleName();
 
     private static final int DEFAULT_BG_COLOR = 0xff41c7cd;
+    private static final int DEFAULT_CIRCLE_COLOR = 0xffffffff;
     private static final int DEFAULT_LINE_COLOR = 0xfffb9ece;
-    private static final int DEFAULT_HEIGHT = 40;//dp
-    private static final int DEFAULT_WIDTH = 90;//dp
+    private static final int DEFAULT_HEIGHT = 30;//dp
+    private static final int DEFAULT_WIDTH = 70;//dp
+    private static final int DEFAULT_ROUND_RECT_RADIUS = 8;//px
+    private static final int DEFAULT_ROUND_RECT_WIDTH = 8;//px
 
     private Paint mBgPaint;
     private Paint mCirclePaint;
     private Paint mLinePaint;
 
-    private int mRoundRectWidth = 8;//圆角矩形宽度
-    private int mRoundRectRadius = 8;//矩形圆角半径
+    private int mRoundRectWidth = DEFAULT_ROUND_RECT_WIDTH;//圆角矩形宽度
+    private int mRoundRectRadius = DEFAULT_ROUND_RECT_RADIUS;//矩形圆角半径
     private int mCircleRadius = 8;//圆点半径
-    private int mCircleSpaceRectangle = 20;//圆点到标签的间隔
+    private int mCircleSpaceRectangle = 16;//圆点到标签的间隔
     private int mSpaceHeight = 8;//背景上下间隔
     private int mLineWidth = 2;//竖线宽度
 
     private int mBgColor = DEFAULT_BG_COLOR;//背景颜色
     private int mLineColor = DEFAULT_LINE_COLOR;//竖直线颜色
-    private int mCircleColor = mBgColor;//圆点颜色
+    private int mCircleColor = DEFAULT_CIRCLE_COLOR;//圆点颜色
 
     private LINE_MODE mLineMode = LINE_MODE.MIDDLE;//竖线模式
 
@@ -92,6 +95,8 @@ public class TriangleRectangleLabelView extends TextView {
             mCircleRadius = a.getDimensionPixelSize(R.styleable.TriangleRectangleLabelView_trlvCircleRadius, mCircleRadius);
             mCircleSpaceRectangle = a.getDimensionPixelSize(R.styleable.TriangleRectangleLabelView_trlvCircleSpaceRectangle, mCircleSpaceRectangle);
             mLineWidth = a.getDimensionPixelSize(R.styleable.TriangleRectangleLabelView_trlvLineWidth, mLineWidth);
+            mRoundRectWidth = a.getDimensionPixelSize(R.styleable.TriangleRectangleLabelView_trlvRoundRectWidth, mRoundRectWidth);
+            mRoundRectRadius = a.getDimensionPixelSize(R.styleable.TriangleRectangleLabelView_trlvRoundRectRadius, mRoundRectRadius);
 
             DisplayMetrics dm = getResources().getDisplayMetrics();
             int minHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_HEIGHT, dm);
@@ -245,9 +250,10 @@ public class TriangleRectangleLabelView extends TextView {
         Log.d(TAG, "height = " + height);
         Log.d(TAG, "width = " + width);
 
+        Log.d(TAG, "isFirstPadding = " + isFirstPadding);
         //-------------------Set Text Padding Begin----------------------------//
         if (isFirstPadding) {
-            int paddingLeft = mCircleRadius * 2 + mCircleSpaceRectangle + (height - mSpaceHeight) / 2;
+            int paddingLeft = mCircleRadius * 2 + mCircleSpaceRectangle + (height - mSpaceHeight) / 2 + 2;
             setPadding(isLeft ? paddingLeft : mRoundRectWidth, mSpaceHeight + 4, isLeft ? mRoundRectWidth + 4 : paddingLeft, mSpaceHeight + 4);
             setGravity(Gravity.CENTER_VERTICAL);
             isFirstPadding = false;

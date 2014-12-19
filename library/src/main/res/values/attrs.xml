@@ -11,5 +11,7 @@
         <attr name="trlvCircleSpaceRectangle" format="dimension" />
         <attr name="trlvCircleRadius" format="dimension" />
         <attr name="trlvLineWidth" format="dimension" />
+        <attr name="trlvRoundRectWidth" format="dimension" />
+        <attr name="trlvRoundRectRadius" format="dimension" />
     </declare-styleable>
 </resources>

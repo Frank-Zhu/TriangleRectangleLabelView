@@ -5,14 +5,20 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.ecloud.trianglerectanglelabelview.TriangleRectangleLabelView;
+
 public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
+        ((TriangleRectangleLabelView)findViewById(R.id.trlv1)).setLineMode(TriangleRectangleLabelView.LINE_MODE.START);
+        ((TriangleRectangleLabelView)findViewById(R.id.trlv2)).setLineMode(TriangleRectangleLabelView.LINE_MODE.MIDDLE);
+        ((TriangleRectangleLabelView)findViewById(R.id.trlv3)).setLineMode(TriangleRectangleLabelView.LINE_MODE.MIDDLE);
+        ((TriangleRectangleLabelView)findViewById(R.id.trlv4)).setLineMode(TriangleRectangleLabelView.LINE_MODE.END);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
