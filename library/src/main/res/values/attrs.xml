@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TriangleRectangleLabelView">
+        <attr name="trlvIsLeft" format="boolean" />
+        <attr name="trlvIsShowCircle" format="boolean" />
+        <attr name="trlvIsShowLine" format="boolean" />
+        <attr name="trlvIsDrawRoundRect" format="boolean" />
+        <attr name="trlvBgColor" format="color" />
+        <attr name="trlvLineColor" format="color" />
+        <attr name="trlvCircleColor" format="color" />
+        <attr name="trlvCircleSpaceRectangle" format="dimension" />
+        <attr name="trlvCircleRadius" format="dimension" />
+        <attr name="trlvLineWidth" format="dimension" />
+    </declare-styleable>
+</resources>
