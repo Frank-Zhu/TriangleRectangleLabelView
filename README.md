@@ -1,3 +1,5 @@
+[![Android Gems](http://www.android-gems.com/badge/Frank-Zhu/TriangleRectangleLabelView.svg?branch=master)](http://www.android-gems.com/lib/Frank-Zhu/TriangleRectangleLabelView)
+
 TriangleRectangleLabelView
 ==========================
 
