@@ -239,6 +239,20 @@ public class TriangleRectangleLabelView extends TextView {
     }
 
     @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        Log.d(TAG, "isFirstPadding = " + isFirstPadding);
+        //-------------------Set Text Padding Begin----------------------------//
+        if (isFirstPadding) {
+            int paddingLeft = mCircleRadius * 2 + mCircleSpaceRectangle + (h - mSpaceHeight) / 2 + 2;
+            setPadding(isLeft ? paddingLeft : mRoundRectWidth, mSpaceHeight + 4, isLeft ? mRoundRectWidth + 4 : paddingLeft, mSpaceHeight + 4);
+            setGravity(Gravity.CENTER_VERTICAL);
+            isFirstPadding = false;
+        }
+        //-------------------Set Text Padding End----------------------------//
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         drawBackground(canvas);
         super.onDraw(canvas);
@@ -249,16 +263,6 @@ public class TriangleRectangleLabelView extends TextView {
         int width = getWidth();
         Log.d(TAG, "height = " + height);
         Log.d(TAG, "width = " + width);
-
-        Log.d(TAG, "isFirstPadding = " + isFirstPadding);
-        //-------------------Set Text Padding Begin----------------------------//
-        if (isFirstPadding) {
-            int paddingLeft = mCircleRadius * 2 + mCircleSpaceRectangle + (height - mSpaceHeight) / 2 + 2;
-            setPadding(isLeft ? paddingLeft : mRoundRectWidth, mSpaceHeight + 4, isLeft ? mRoundRectWidth + 4 : paddingLeft, mSpaceHeight + 4);
-            setGravity(Gravity.CENTER_VERTICAL);
-            isFirstPadding = false;
-        }
-        //-------------------Set Text Padding End----------------------------//
 
         //-------------------Draw Line Begin----------------------------//
         int startLineX = isShowLine ? (isLeft ? mCircleRadius : width - mCircleRadius) : 0;
